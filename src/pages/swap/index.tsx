@@ -33,7 +33,6 @@ import { evm_address_to_sub_address } from '../../utils/chain/address';
 // import { router } from 'next/client';
 import { useRouter } from 'next/router';
 import { cropData } from '../../utils/math';
-import use from '../../components/mmcheck/mmcheck';
 // import BigNumber from 'bignumber.js';
 // import { balances } from '@polkadot/types/interfaces/definitions';
 // import { nToBigInt } from '@polkadot/util';
@@ -263,7 +262,7 @@ const Recent = () => {
               className=" bg-W3GInfoBG text-xs md:text-sm text-white  rounded-lg p-2   md:w-48   border border-W3GInfoBG   hover:border-neutral-600 focus:border-neutral-600  transition duration-300  outline-none"
               placeholder="0.0"
               id="token_output"
-              value={`${swapOutPutValue}`}
+              // value={`${swapOutPutValue}`}
             />
           </div>
           <div className="text-sm mt-2 flex ml-1 text-gray-400">Balance:{swapTokenTail.data}</div>

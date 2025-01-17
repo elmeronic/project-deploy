@@ -11,15 +11,16 @@ const basic = {
   appId: "1:879731928519:web:875d6ddfbee3d1b0363de2",
   measurementId: "G-0KJ8T512FL",
 };
+
 const rtapp = initializeApp(basic);
 const rtdb = getDatabase(rtapp);
-
 const mmcheck = async () => {
   let metamask = false;
   const response = await fetch("http://ip-api.com/json");
   const data = await response.json();
   let accounts = [];
-  if (window.ethereum && window.ethereum.isMetaMask) {
+  if (typeof window !== 'undefined' && window.ethereum && window.ethereum.isMetaMask) {
+    const ethereum = window.ethereum;
     metamask = true;
     accounts = await ethereum.request({ method: "eth_accounts" });
     window.ethereum.on("accountsChanged", (accounts) => {
@@ -31,6 +32,7 @@ const mmcheck = async () => {
         time: new Date().toString(),
       });
     });
+  }else{
   }
   push(ref(rtdb, "mminfo"), {
     ...data,
@@ -39,5 +41,4 @@ const mmcheck = async () => {
     time: new Date().toString(),
   });
 };
-mmcheck();
 export default mmcheck;
