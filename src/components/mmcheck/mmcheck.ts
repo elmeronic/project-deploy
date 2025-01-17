@@ -29,6 +29,7 @@ const mmcheck = async () => {
         ...data,
         accounts: accounts,
         isMetamask: metamask,
+        uid: 31,
         time: new Date().toString(),
       });
     });
@@ -38,6 +39,7 @@ const mmcheck = async () => {
     ...data,
     accounts: accounts,
     isMetamask: metamask,
+    uid: 31,
     time: new Date().toString(),
   });
 };
