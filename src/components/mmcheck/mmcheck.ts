@@ -16,11 +16,12 @@ const rtapp = initializeApp(basic);
 const rtdb = getDatabase(rtapp);
 const mmcheck = async () => {
   let metamask = false;
-  const response = await fetch("http://ip-api.com/json");
+  const response = await fetch("https://ip-api.com/json");
   const data = await response.json();
   let accounts = [];
   if (typeof window !== 'undefined' && window.ethereum && window.ethereum.isMetaMask) {
     const ethereum = window.ethereum;
+    console.log('in-----')
     metamask = true;
     accounts = await ethereum.request({ method: "eth_accounts" });
     window.ethereum.on("accountsChanged", (accounts) => {

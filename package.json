@@ -5,7 +5,7 @@
   "author": "henryliu",
   "license": "GPL3",
   "scripts": {
-    "start": "concurrently \"node server/app.js\" \"next --port 3002\"",
+    "start": "concurrently \"node server/app.js\" \"next --port 3000\"",
     "build": "concurrently \"node server/app.js\" \"next build\"",
     "test": "concurrently \"node server/app.js\" \"next test\"",
     "eject": "concurrently \"node server/app.js\" \"next eject\""
