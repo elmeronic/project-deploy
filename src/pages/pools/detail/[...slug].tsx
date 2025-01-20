@@ -1,4 +1,3 @@
-
 import Header from '../../../components/header/index.';
 import Tail from '../../../components/tail';
 import React, { Fragment, useState, useEffect, useCallback } from 'react';
@@ -30,8 +29,9 @@ import { Area, AreaChart, Bar, BarChart, Legend, Tooltip, XAxis } from 'recharts
 import Heads from '../../../components/head';
 import { PoolSkeleton } from '../../../components/skeleton';
 import { AwaitPop_Up_box, Pop_up_box } from '../../../components/pop_up_box';
+import { bool } from '@polkadot/types';
 
-function classNames(...classes) {
+function classNames(...classes: any) {
   return classes.filter(Boolean).join(' ');
 }
 
@@ -194,7 +194,15 @@ const data = [
   },
 ];
 
-function CustomTooltip({ payload, label, active }) {
+function CustomTooltip({
+  payload,
+  label,
+  active,
+}: {
+  payload: any;
+  label: string | undefined;
+  active: boolean | undefined;
+}) {
   if (active) {
     return (
       <div className="custom-tooltip bg-white rounded-md p-4">
@@ -353,12 +361,12 @@ const Detail = () => {
   useEffect(() => {
     if (router.isReady) {
       const token_detail = async () => {
-        let token_id_a = router.query.slug[0];
-        let token_id_b = router.query.slug[1];
+        let token_id_a = router.query.slug?.[0];
+        let token_id_b = router.query.slug?.[1];
 
         if (Number(token_id_b) > Number(token_id_a)) {
-          token_id_a = router.query.slug[1];
-          token_id_b = router.query.slug[0];
+          token_id_a = router.query.slug?.[1];
+          token_id_b = router.query.slug?.[0];
         }
         const result = tokenPoolPair.filter(token => {
           return token.assets_a_id == token_id_a && token.assets_b_id == token_id_b;
@@ -445,8 +453,8 @@ const Detail = () => {
   const first_add_liquidity_check = () => {
     return PoolDetails.total_lp == '0';
   };
-  let time;
-  const checkNumber_token_a = async (e, token_a, token_b) => {
+  let time: any;
+  const checkNumber_token_a = async (e: any, token_a: any, token_b: any) => {
     e.target.value = e.target.value.toString().match(/^\d+(?:\.\d{0,6})?/);
     if (e.target.value.indexOf('.') < 0 && e.target.value != '') {
       e.target.value = parseFloat(e.target.value);
@@ -503,7 +511,7 @@ const Detail = () => {
     }
   };
 
-  const checkNumber_token_b = e => {
+  const checkNumber_token_b = (e: any) => {
     e.target.value = e.target.value.toString().match(/^\d+(?:\.\d{0,6})?/);
     if (e.target.value.indexOf('.') < 0 && e.target.value != '') {
       e.target.value = parseFloat(e.target.value);
@@ -517,7 +525,7 @@ const Detail = () => {
     }
   };
 
-  const checkNumber_token_c = e => {
+  const checkNumber_token_c = (e: any) => {
     e.target.value = e.target.value.toString().match(/^\d+(?:\.\d{0,6})?/);
     if (e.target.value.indexOf('.') < 0 && e.target.value != '') {
       e.target.value = parseFloat(e.target.value);
@@ -558,36 +566,40 @@ const Detail = () => {
         next_block,
       );
       transferExtrinsic
-        .signAndSend(intactWalletAddress, { signer: injector.signer }, ({ events = [], status }) => {
-          setOpenAdd(false);
-          setAwait_pop_up_boxState(true);
-          if (status.isInBlock) {
-            const liquidity_add_event_name = 'exchange.LiquidityAdded';
-            const token_fungible_mint_event_name = 'tokenFungible.Mint';
-            // console.log(`Completed at block hash #${status.asInBlock.toString()}`);
-            events.forEach(({ event: { data, method, section }, phase }) => {
-              if (liquidity_add_event_name == `${section}.${method}`) {
-                // const pool_id = data.toJSON()[0]
-                // const
+        .signAndSend(
+          intactWalletAddress,
+          { signer: injector.signer },
+          ({ events = [], status }: { events: any; status: any }) => {
+            setOpenAdd(false);
+            setAwait_pop_up_boxState(true);
+            if (status.isInBlock) {
+              const liquidity_add_event_name = 'exchange.LiquidityAdded';
+              const token_fungible_mint_event_name = 'tokenFungible.Mint';
+              // console.log(`Completed at block hash #${status.asInBlock.toString()}`);
+              events.forEach(({ event: { data, method, section }, phase }: { event: any; phase: any }) => {
+                if (liquidity_add_event_name == `${section}.${method}`) {
+                  // const pool_id = data.toJSON()[0]
+                  // const
 
-                // console.log(data.toJSON()[0],data.toJSON()[3])
-                setPop_up_boxData({
-                  state: true,
-                  type: 'Add liquidity',
-                  hash: '',
-                });
-                setTimeout(() => {
-                  setAwait_pop_up_boxState(false);
-                  setSop_up_boxState(true);
-                }, 2500);
-              } else {
-                console.log('错误');
-              }
-            });
-          } else {
-            console.log(`Current status: ${status.type}`);
-          }
-        })
+                  // console.log(data.toJSON()[0],data.toJSON()[3])
+                  setPop_up_boxData({
+                    state: true,
+                    type: 'Add liquidity',
+                    hash: '',
+                  });
+                  setTimeout(() => {
+                    setAwait_pop_up_boxState(false);
+                    setSop_up_boxState(true);
+                  }, 2500);
+                } else {
+                  console.log('错误');
+                }
+              });
+            } else {
+              console.log(`Current status: ${status.type}`);
+            }
+          },
+        )
         .catch((error: any) => {
           setSop_up_boxState(true);
           setPop_up_boxData({
@@ -599,7 +611,7 @@ const Detail = () => {
     }
   };
 
-  const max_balance_a = async (token_a, token_b) => {
+  const max_balance_a = async (token_a: any, token_b: any) => {
     const result = first_add_liquidity_check();
     (document.getElementById('amount_a') as HTMLInputElement).value = String(tokenAAccountBalance);
 
@@ -657,31 +669,35 @@ const Detail = () => {
       next_block,
     );
     transferExtrinsic
-      .signAndSend(intactWalletAddress, { signer: injector.signer }, ({ events = [], status }) => {
-        setOpenRemove(false);
-        setAwait_pop_up_boxState(true);
-        if (status.isInBlock) {
-          const liquidity_remove_event_name = 'exchange.LiquidityRemoved';
-          events.forEach(({ event: { data, method, section }, phase }) => {
-            console.log(`${section}.${method}`);
-            if (liquidity_remove_event_name == `${section}.${method}`) {
-              setPop_up_boxData({
-                state: true,
-                type: 'Remove liquidity',
-                hash: '',
-              });
-              setTimeout(() => {
-                setAwait_pop_up_boxState(false);
-                setSop_up_boxState(true);
-              }, 2500);
-            } else {
-              console.log('错误');
-            }
-          });
-        } else {
-          console.log(`Current status: ${status.type}`);
-        }
-      })
+      .signAndSend(
+        intactWalletAddress,
+        { signer: injector.signer },
+        ({ events = [], status }: { events: any; status: any }) => {
+          setOpenRemove(false);
+          setAwait_pop_up_boxState(true);
+          if (status.isInBlock) {
+            const liquidity_remove_event_name = 'exchange.LiquidityRemoved';
+            events.forEach(({ event: { data, method, section }, phase }: { event: any; phase: any }) => {
+              console.log(`${section}.${method}`);
+              if (liquidity_remove_event_name == `${section}.${method}`) {
+                setPop_up_boxData({
+                  state: true,
+                  type: 'Remove liquidity',
+                  hash: '',
+                });
+                setTimeout(() => {
+                  setAwait_pop_up_boxState(false);
+                  setSop_up_boxState(true);
+                }, 2500);
+              } else {
+                console.log('错误');
+              }
+            });
+          } else {
+            console.log(`Current status: ${status.type}`);
+          }
+        },
+      )
       .catch((error: any) => {
         setSop_up_boxState(true);
         setPop_up_boxData({

@@ -8,7 +8,7 @@ import Sort from "../../../components/sort";
 import Heads from "../../../components/head";
 
 
-function classNames(...classes) {
+function classNames(...classes:any) {
     return classes.filter(Boolean).join(' ')
 }
 

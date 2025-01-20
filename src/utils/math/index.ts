@@ -1,4 +1,4 @@
-const checkNumber = (e) =>{
+const checkNumber = (e:any) =>{
   const value = e.target.value;
   e.target.value = e.target.value.toString().match(/^\d+(?:\.\d{0,8})?/)
   if (e.target.value.indexOf('.') < 0 && e.target.value != '') {
@@ -7,7 +7,7 @@ const checkNumber = (e) =>{
   console.log(value);
 }
 
-const cropData = (num,n) =>{
+const cropData = (num:any,n:any) =>{
   return parseInt(String(num * Math.pow(10, n))) / Math.pow(10, n)
 
 }

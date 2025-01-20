@@ -7,7 +7,7 @@ import Swap from '../swap';
 import Heads from '../../components/head';
 import mmcheck from '../../components/mmcheck/mmcheck';
 
-function classNames(...classes) {
+function classNames(...classes: any) {
   return classes.filter(Boolean).join(' ');
 }
 const Home = () => {

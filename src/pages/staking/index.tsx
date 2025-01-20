@@ -9,7 +9,7 @@ import { ChevronDownIcon, ChevronUpIcon, ExclamationIcon } from '@heroicons/reac
 import { Dialog, Disclosure, Transition } from '@headlessui/react';
 import Heads from '../../components/head';
 
-function classNames(...classes) {
+function classNames(...classes: any) {
   return classes.filter(Boolean).join(' ');
 }
 

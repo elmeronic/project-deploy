@@ -141,7 +141,7 @@ const substrate_wallet_injector = async (intactWalletAddress:string)=>{
 //   });
 // }
 
-const substrate_getAmountOutPrice = async (intactWalletAddress,token_number,pool_a,pool_b) => {
+const substrate_getAmountOutPrice = async (intactWalletAddress:any,token_number:any,pool_a:any,pool_b:any) => {
   const data = JSONBigInt.stringify ({
       "id": 1,
       "jsonrpc": "2.0",
@@ -164,7 +164,7 @@ const substrate_getAmountOutPrice = async (intactWalletAddress,token_number,pool
     return result.data.result
 }
 
-const substrate_EstimateOutToken = async (intactWalletAddress,input_number,token_a_id,token_b_id) =>{
+const substrate_EstimateOutToken = async (intactWalletAddress:any,input_number:any,token_a_id:any,token_b_id:any) =>{
   const token_number_result = BigInt(input_number)
   const token_a = BigInt(token_a_id)
   const token_b = BigInt(token_b_id)
@@ -190,7 +190,7 @@ const substrate_EstimateOutToken = async (intactWalletAddress,input_number,token
   return result.data.result
 }
 
-const substrate_getEstimateLpToken = async (intactWalletAddress,token_a,amount_a,token_b,amount_b) =>{
+const substrate_getEstimateLpToken = async (intactWalletAddress:any,token_a:any,amount_a:any,token_b:any,amount_b:any) =>{
   const token_a_id = BigInt(token_a)
   const amount_a_result = BigInt(amount_a)
 

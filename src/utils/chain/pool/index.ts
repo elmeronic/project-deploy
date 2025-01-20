@@ -1,6 +1,6 @@
 import { chain_api } from "../../../chain/web3games";
 
-const quote = (amount_a,reserve_a,reserve_b) =>{
+const quote = (amount_a:any,reserve_a:any,reserve_b:any) =>{
   if (amount_a > 0){
     if (reserve_a > 0 && reserve_b > 0){
       const amount_b = amount_a * reserve_b / reserve_a;
@@ -13,7 +13,7 @@ const quote = (amount_a,reserve_a,reserve_b) =>{
   }
 }
 
-const do_add_liquidity = async (intactWalletAddress,id,amount_a_desired, amount_b_desired,amount_a_min,amount_b_min) =>  {
+const do_add_liquidity = async (intactWalletAddress:any,id:any,amount_a_desired:any, amount_b_desired:any,amount_a_min:any,amount_b_min:any) =>  {
   const api = await chain_api(intactWalletAddress)
   const reserve_result = await api.query.exchange.reserves(id)
   const reserve_a = reserve_result.toJSON()[0]
@@ -49,7 +49,7 @@ const do_add_liquidity = async (intactWalletAddress,id,amount_a_desired, amount_
   return [amount_a,amount_b]
 }
 
-const add_liquidity = async (intactWalletAddress,id,amount_a_desired, amount_b_desired,) =>{
+const add_liquidity = async (intactWalletAddress:any,id:any,amount_a_desired:any, amount_b_desired:any,) =>{
   const amount = await do_add_liquidity(intactWalletAddress,id,amount_a_desired, amount_b_desired,0,0)
   return amount
 }

@@ -38,7 +38,7 @@ import { cropData } from '../../utils/math';
 // import { nToBigInt } from '@polkadot/util';
 // const { stringToU8a } = require('@polkadot/util');
 
-function classNames(...classes) {
+function classNames(...classes: any) {
   return classes.filter(Boolean).join(' ');
 }
 
@@ -76,9 +76,9 @@ const Recent = () => {
     setSelectTokenTail(true);
   };
 
-  let time;
+  let time: any;
 
-  const get_swap_number = async input_data => {
+  const get_swap_number = async (input_data: any) => {
     clearTimeout(time);
     const pool_a = swapTokenTop.tokenId;
     const pool_b = swapTokenTail.tokenId;
@@ -113,7 +113,7 @@ const Recent = () => {
     }
   };
 
-  const check = async e => {
+  const check = async (e: any) => {
     e.target.value = e.target.value.toString().match(/^\d+(?:\.\d{0,6})?/);
     if (e.target.value.indexOf('.') < 0 && e.target.value != '') {
       e.target.value = parseFloat(e.target.value);
@@ -153,7 +153,7 @@ const Recent = () => {
       );
       setAwait_pop_up_boxState(true);
       transferExtrinsic
-        .signAndSend(intactWalletAddress, { signer: injector.signer }, ({ status }) => {
+        .signAndSend(intactWalletAddress, { signer: injector.signer }, ({ status }: { status: any }) => {
           // if (status.isInBlock) {
           //
           // }
@@ -190,7 +190,7 @@ const Recent = () => {
         <div className="flex justify-between">
           <div className="flex bg-W3GInfoBG p-1 rounded-full border border-W3GInfoBG hover:border-neutral-600 focus:border-neutral-600  transition duration-300 ">
             <div className="flex">
-              <button onClick={selectTokenTop} className="flex items-center  ">
+              <button onClick={selectTokenTop} className="flex items-center  " title="d">
                 <div>
                   <img className="w-6 rounded-full mr-1" src={swapTokenTop.img} alt="" />
                 </div>
@@ -232,7 +232,7 @@ const Recent = () => {
             'items-center text-[#8B8EFA] text-base px-1.5 py-0.5  rounded-2xl  bg-W3GInfoBG  transition duration-300',
           )}
         >
-          <i className="fa fa-arrow-down " aria-hidden="true"></i>
+          .<i className="fa fa-arrow-down " aria-hidden="true"></i>
         </button>
       </div>
       <div className="-mt-2 bg-W3GBG p-3 rounded-2xl">
