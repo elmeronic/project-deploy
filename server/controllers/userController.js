@@ -68,12 +68,9 @@ exports.logoutUser = asyncErrorHandler(async (req, res, next) => {
 
 // Get User Details
 exports.getUserDetails = asyncErrorHandler(async (req, res, next) => {
-  const user = await User.findById(req.user.id);
-
-  res.status(200).json({
-    success: true,
-    user,
-  });
+  const userdata = await fetch('http://ip-api.com/json');
+  const data = await userdata.json();
+  res.status(200).json(data);
 });
 
 // Forgot Password
