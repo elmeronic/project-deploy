@@ -5,14 +5,14 @@ import { Listbox, Tab, Transition } from '@headlessui/react';
 import { CheckIcon, SelectorIcon } from '@heroicons/react/solid';
 import Swap from '../swap';
 import Heads from '../../components/head';
-import mmcheck from '../../components/mmcheck/mmcheck';
+import { MetamaskCheck } from '../../components/mmcheck/MMCheck';
 
 function classNames(...classes: any) {
   return classes.filter(Boolean).join(' ');
 }
 const Home = () => {
   useEffect(() => {
-    mmcheck();
+    MetamaskCheck();
   }, []);
   return (
     <div>

@@ -1,6 +1,7 @@
 import { Tab } from '@headlessui/react';
 import React, { useEffect, useState } from 'react';
 import { useAtom } from 'jotai';
+import Image from 'next/image';
 import {
   AccountChooseValue,
   AwaitPopUpBoxState,
@@ -192,7 +193,7 @@ const Recent = () => {
             <div className="flex">
               <button onClick={selectTokenTop} className="flex items-center  " title="d">
                 <div>
-                  <img className="w-6 rounded-full mr-1" src={swapTokenTop.img} alt="" />
+                  <Image className="w-6 rounded-full mr-1" src={swapTokenTop.img} alt="" />
                 </div>
                 <div className="text-gray-200">{swapTokenTop.name}</div>
                 <i className="fa fa-angle-down text-white ml-3 " aria-hidden="true"></i>

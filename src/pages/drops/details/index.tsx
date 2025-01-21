@@ -3,6 +3,7 @@ import Tail from '../../../components/tail';
 import React, { Fragment, useState } from 'react';
 import Link from 'next/link';
 import Heads from '../../../components/head';
+import Image from 'next/image';
 
 function classNames(...classes: any) {
   return classes.filter(Boolean).join(' ');
@@ -12,7 +13,7 @@ const DetailsTop = () => {
   return (
     <>
       <div className="xl:flex mt-8 justify-between">
-        <img
+        <Image
           className="rounded-xl md:w-10/12 mx-auto xl:w-1/2 xl:mr-10"
           src="https://www.mintverse.com/images/pngs/games/hegemony/banner2.jpg"
           alt=""
@@ -149,7 +150,7 @@ const DetailsTable = () => {
         <div className="text-white text-xl  flex p-3  font-semibold">Product Description</div>
         <div className="xl:flex p-5">
           <div className="">
-            <img className="w-32  mb-5 mx-auto" src={Description.img} alt="" />
+            <Image className="w-32  mb-5 mx-auto" src={Description.img} alt="" />
           </div>
           <div className="xl:ml-8 text-gray-200 xl:w-10/12">
             <div>{Description.h1}</div>
@@ -170,7 +171,7 @@ const Details = () => {
         <div className=" mx-auto  ">
           <div className="relative sm:overflow-hidden">
             <div className="absolute inset-0">
-              <img
+              <Image
                 className="h-full w-full object-cover"
                 src="https://www.mintverse.com/images/pngs/games/hegemony/banner-main2.jpg"
                 alt="People working on laptops"

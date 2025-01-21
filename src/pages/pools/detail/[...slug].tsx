@@ -4,6 +4,7 @@ import React, { Fragment, useState, useEffect, useCallback } from 'react';
 import Link from 'next/link';
 import { Dialog, RadioGroup, Tab, Transition } from '@headlessui/react';
 import { useAtom } from 'jotai';
+import Image from 'next/image';
 import {
   AwaitPopUpBoxState,
   IntactWalletAddress,
@@ -738,7 +739,7 @@ const Detail = () => {
                       <div className="flex justify-between bg-[#2B2B2B] rounded-md p-1 items-center">
                         <div className="flex items-center">
                           <div>
-                            <img className="w-10 rounded-full" src={PoolDetails.assets_a_image_url} alt="" />
+                            <Image className="w-10 rounded-full" src={PoolDetails.assets_a_image_url} alt="" />
                           </div>
                           <div className="ml-2 text-white font-semibold">
                             <div>{PoolDetails.assets_a}</div>
@@ -754,7 +755,7 @@ const Detail = () => {
                       <div className="flex mt-4 justify-between bg-[#2B2B2B] rounded-md p-1 items-center">
                         <div className="flex items-center">
                           <div>
-                            <img className="w-10 rounded-full" src={PoolDetails.assets_b_image_url} alt="" />
+                            <Image className="w-10 rounded-full" src={PoolDetails.assets_b_image_url} alt="" />
                           </div>
                           <div className="ml-2 text-white font-semibold  ">
                             <div>{PoolDetails.assets_b}</div>
@@ -878,7 +879,7 @@ const Detail = () => {
                       <div className="mt-5 ">
                         <div className="flex items-center justify-between mt-4 ">
                           <div className="text-sm  mt-5 flex items-center text-white font-semibold">
-                            <img className="w-10 mr-2" src={PoolDetails.assets_a_image_url} alt="" />
+                            <Image className="w-10 mr-2" src={PoolDetails.assets_a_image_url} alt="" />
                             {PoolDetails.assets_a}
                           </div>
                           <div className="items-center">
@@ -910,7 +911,7 @@ const Detail = () => {
                       <div className="mt-5 ">
                         <div className="flex items-center justify-between mt-4 ">
                           <div className="text-sm  mt-5 flex items-center text-white font-semibold">
-                            <img className="w-10 mr-2" src={PoolDetails.assets_b_image_url} alt="" />
+                            <Image className="w-10 mr-2" src={PoolDetails.assets_b_image_url} alt="" />
                             {PoolDetails.assets_b}
                           </div>
                           <div className="items-center">

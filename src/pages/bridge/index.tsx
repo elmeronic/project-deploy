@@ -8,6 +8,7 @@ import { useAtom } from 'jotai';
 import { Select_TokenTop, SwapTokenTop, WalletButtonShowState, WalletListShowState } from '../../jotai';
 import SelectTokenTop from '../../components/selecttokentop';
 import Heads from '../../components/head';
+import Image from 'next/image';
 
 function classNames(...classes: any) {
   return classes.filter(Boolean).join(' ');
@@ -213,7 +214,11 @@ const Bridge = () => {
                             <div className="my-1 relative">
                               <Listbox.Button className="relative w-44 bg-gray-600  bg-opacity-70 border border-gray-500 rounded-md shadow-sm pl-3   py-2 text-left cursor-default  sm:text-sm">
                                 <span className="flex items-center ">
-                                  <img src={selectedfrom.avatar} alt="" className="flex-shrink-0 h-8 w-8 rounded-lg" />
+                                  <Image
+                                    src={selectedfrom.avatar}
+                                    alt=""
+                                    className="flex-shrink-0 h-8 w-8 rounded-lg"
+                                  />
                                   <span className="ml-3 block text-gray-200 truncate ">{selectedfrom.name}</span>
                                 </span>
                                 <span className=" absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
@@ -243,7 +248,7 @@ const Bridge = () => {
                                       {({ selected, active }) => (
                                         <>
                                           <div className="flex items-center">
-                                            <img
+                                            <Image
                                               src={from.avatar}
                                               alt=""
                                               className="flex-shrink-0 h-6 w-6 rounded-full"
@@ -283,7 +288,7 @@ const Bridge = () => {
                         type="text"
                         className="text-xs md:text-sm border border-gray-500 placeholder-gray-50 bg-gray-600 rounded-lg p-2 py-3 w-full text-white    outline-none"
                         placeholder="0"
-                        id="amount"
+                        id="amount1"
                       />
                       <div className="-ml-36 text-sm flex items-center py-1 text-white font-semibold">
                         <button className="mr-2">MAX</button>
@@ -291,7 +296,7 @@ const Bridge = () => {
                           <div className="flex items-center">
                             <button onClick={selectTokenTop} className="flex items-center">
                               <div>
-                                <img className="w-6 rounded-full mr-1" src={swapTokenTop.img} alt="" />
+                                <Image className="w-6 rounded-full mr-1" src={swapTokenTop.img} alt="" />
                               </div>
                               <div className="text-gray-200 w-10">{swapTokenTop.name}</div>
                               <i className="fa fa-angle-down text-white ml-3 " aria-hidden="true"></i>
@@ -322,7 +327,7 @@ const Bridge = () => {
                             <div className="my-1 relative">
                               <Listbox.Button className="relative w-44 bg-gray-600  bg-opacity-70 border border-gray-500 rounded-md shadow-sm pl-3  py-2 text-left cursor-default  sm:text-sm">
                                 <span className="flex items-center ">
-                                  <img src={selectedto.avatar} alt="" className="flex-shrink-0 h-8 w-8 rounded-lg" />
+                                  <Image src={selectedto.avatar} alt="" className="flex-shrink-0 h-8 w-8 rounded-lg" />
                                   <span className="ml-3 block text-gray-200  truncate">{selectedto.name}</span>
                                 </span>
                                 <span className="ml-3 absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
@@ -352,7 +357,7 @@ const Bridge = () => {
                                       {({ selected, active }) => (
                                         <>
                                           <div className="flex items-center">
-                                            <img
+                                            <Image
                                               src={to.avatar}
                                               alt=""
                                               className="flex-shrink-0 h-6 w-6 rounded-full"
@@ -426,8 +431,8 @@ const Bridge = () => {
                   <div className="flex justify-between w-full items-center">
                     <div className="">Bridge rate</div>
                     <div className="hidden  md:flex items-center justify-end ml-10 md:ml-20">
-                      1 W3G on <img className="w-6 rounded-full mx-1" src={selectedfrom.avatar} alt="" />
-                      = 1 W3G on <img className="w-6 ml-1" src={selectedto.avatar} alt="" />
+                      1 W3G on <Image className="w-6 rounded-full mx-1" src={selectedfrom.avatar} alt="" />
+                      = 1 W3G on <Image className="w-6 ml-1" src={selectedto.avatar} alt="" />
                     </div>
                     <div className="md:hidden ">1</div>
                   </div>
@@ -450,7 +455,7 @@ const Bridge = () => {
                   <div className="flex justify-between items-center">
                     <div>Destination token address</div>
                     <div className="flex items-center justify-end  ">
-                      <img className="w-6 mr-1" src="/img.png" alt="" />
+                      <Image className="w-6 mr-1" src="/img.png" alt="" />
                       <Link passHref href="/" legacyBehavior>
                         {/* <a className="underline"> */}
                         0xfcDe4A87

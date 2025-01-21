@@ -3,6 +3,7 @@ import Tail from '../../components/tail';
 import React, { Fragment, useState } from 'react';
 import Link from 'next/link';
 import Heads from '../../components/head';
+import Image from 'next/image';
 
 function classNames(...classes: any) {
   return classes.filter(Boolean).join(' ');
@@ -69,7 +70,7 @@ const Auction = () => {
                     {/* <a> */}
                     <div className="relative mb-10 mx-4 lg:mx-28">
                       <div className="absolute inset-0">
-                        <img
+                        <Image
                           className="h-full  w-full  object-cover rounded-xl"
                           src={item.img}
                           alt="People working on laptops"

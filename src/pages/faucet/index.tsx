@@ -8,6 +8,7 @@ import { useRouter } from 'next/router';
 import Header from '../../components/header/index.';
 import check_address from '../../utils';
 import Heads from '../../components/head';
+import Image from 'next/image';
 
 function classNames(...classes: any) {
   return classes.filter(Boolean).join(' ');
@@ -144,7 +145,7 @@ const Faucet = () => {
       <Heads />
       <Header />
       <div className="hidden xl:block absolute xl:top-14 2xl:top-20 xl:left-44 2xl:left-96">
-        <img
+        <Image
           className={classNames(
             scroll ? ' transform ' : ' transform translate-y-8',
             'w-90 transition duration-700 transition delay-150 duration-300',
@@ -154,7 +155,7 @@ const Faucet = () => {
         />
       </div>
       <div className=" hidden xl:block absolute xl:top-14 xl:right-36 2xl:top-16 2xl:right-96">
-        <img
+        <Image
           className={classNames(
             scroll ? ' transform ' : ' transform -translate-y-8',
             'w-64 transition duration-700 transition delay-150 duration-300',
@@ -164,7 +165,7 @@ const Faucet = () => {
         />
       </div>
       <div className="hidden xl:block absolute  xl:bottom-2 xl:left-56 2xl:bottom-24 2xl:left-99">
-        <img
+        <Image
           className={classNames(
             scroll ? ' transform ' : ' transform -translate-y-8',
             'w-56 transition duration-700 transition delay-150 duration-300',
@@ -174,7 +175,7 @@ const Faucet = () => {
         />
       </div>
       <div className=" absolute  xl:bottom-2 xl:right-56 2xl:bottom-6 2xl:right-96">
-        <img
+        <Image
           className={classNames(
             scroll ? ' transform ' : ' transform translate-y-8',
             'w-90 transition duration-700 transition delay-150 duration-300',
@@ -184,7 +185,7 @@ const Faucet = () => {
         />
       </div>
       <div className="absolute bottom-96 right-56 xl:bottom-2 xl:right-56 2xl:bottom-6 2xl:right-104 ">
-        <img
+        <Image
           className={classNames(
             scroll ? ' transform ' : ' transform -translate-y-8',
             'w-44 transition duration-700 transition delay-150 duration-300',

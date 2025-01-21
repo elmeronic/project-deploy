@@ -25,6 +25,7 @@ import {
   AllTokenPoolPair,
   TokenListAndBalance,
 } from '../../jotai';
+import Image from 'next/image';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import { chain_api, substrate_wallet_injector } from '../../chain/web3games';
@@ -468,8 +469,8 @@ const Pools = () => {
                         <td className="px-6 py-4  whitespace-nowrap text-sm text-gray-200">{item.pool_id}</td>
                         <td className="px-6 py-4 pr-12 md:w-96 md:pr-0  whitespace-nowrap text-sm font-medium text-gray-200 font-medium">
                           <div className="flex items-center">
-                            <img className="w-8 rounded-full" src={item.assets_a_image_url} alt="" />
-                            <img className="w-8 rounded-full -ml-1" src={item.assets_b_image_url} alt="" />
+                            <Image className="w-8 rounded-full" src={item.assets_a_image_url} alt="" />
+                            <Image className="w-8 rounded-full -ml-1" src={item.assets_b_image_url} alt="" />
                             <div className="ml-2 ">
                               {item.assets_a}-{item.assets_b}
                             </div>
@@ -601,8 +602,8 @@ const Pools = () => {
                         <td className="px-6 py-4  whitespace-nowrap text-sm text-gray-200">{item.pool_id}</td>
                         <td className="px-6 py-4 pr-12 md:w-96 md:pr-0  whitespace-nowrap text-sm font-medium text-gray-200 font-medium">
                           <div className="flex items-center">
-                            <img className="w-8 rounded-full" src={item.assets_a_image_url} alt="" />
-                            <img className="w-8 rounded-full -ml-1" src={item.assets_b_image_url} alt="" />
+                            <Image className="w-8 rounded-full" src={item.assets_a_image_url} alt="" />
+                            <Image className="w-8 rounded-full -ml-1" src={item.assets_b_image_url} alt="" />
                             <div className="ml-2 ">
                               {item.assets_a}-{item.assets_b}
                             </div>
@@ -721,7 +722,7 @@ const Pools = () => {
                               >
                                 <div className="flex w-full items-center">
                                   <div>
-                                    <img className="w-7 rounded-full mr-2" src={swapTokenTop.img} alt="" />
+                                    <Image className="w-7 rounded-full mr-2" src={swapTokenTop.img} alt="" />
                                   </div>
                                   <div className="text-gray-200">{swapTokenTop.name}</div>
                                 </div>
@@ -745,7 +746,7 @@ const Pools = () => {
                             >
                               <div className="flex w-full items-center">
                                 <div>
-                                  <img className="w-7 rounded-full mr-2" src={swapTokenTail.img} alt="" />
+                                  <Image className="w-7 rounded-full mr-2" src={swapTokenTail.img} alt="" />
                                 </div>
                                 <div className="text-gray-200">{swapTokenTail.name}</div>
                               </div>
